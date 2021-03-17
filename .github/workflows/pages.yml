@@ -28,4 +28,5 @@ jobs:
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           external_repository: labue/labue.github.io
-          publish_dir: ./public
+          publish_dir: ./
+          publish_branch: main
