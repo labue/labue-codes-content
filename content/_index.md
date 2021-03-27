@@ -1,9 +1,9 @@
 ---
 title: "labue.codes"
-date: 2020-11-06T09:46:56-05:00
+date: 2021-03-16T20:00:00-04:00
 # keywords: []
 # tags: []
-typer: ["dynamic apps.", "responsive sites.", "scaleable systems.", "for mobile first."]
+typer: ["dynamic apps", "responsive sites", "scaleable systems", "for mobile first"]
 ---
 
 <div>

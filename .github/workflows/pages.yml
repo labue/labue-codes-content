@@ -1,28 +1,34 @@
 name: github pages
-
 on:
   push:
     branches:
       - master
-
 jobs:
   deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository and submodules
+        uses: actions/checkout@v2
         with:
           submodules: true
           fetch-depth: 0
-
+      - name: Setup node
+        uses: actions/setup-node@v1
+        working-directory: themes/labue-codes-theme
+        with:
+          node-version: '12.21.0'
+      - name: Install submodule dependencies
+        run: npm install
+        working-directory: themes/labue-codes-theme
+      - name: Process stylesheet
+        run: npm run style
+        working-directory: themes/labue-codes-theme
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: 'latest'
-          # extended: true
-
       - name: Build
         run: hugo --minify
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
