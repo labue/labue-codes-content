@@ -15,16 +15,13 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v1
         with:
-          working-directory: ./themes/labue-codes-theme
           node-version: '12.21.0'
       - name: Install submodule dependencies
         run: npm install
-        with:
-          working-directory: ./themes/labue-codes-theme
+        working-directory: ./themes/labue-codes-theme
       - name: Process stylesheet
         run: npm run style
-        with:
-          working-directory: ./themes/labue-codes-theme
+        working-directory: ./themes/labue-codes-theme
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
