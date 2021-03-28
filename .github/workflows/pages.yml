@@ -14,15 +14,17 @@ jobs:
           fetch-depth: 0
       - name: Setup node
         uses: actions/setup-node@v1
-        working-directory: ./themes/labue-codes-theme
         with:
+          working-directory: ./themes/labue-codes-theme
           node-version: '12.21.0'
       - name: Install submodule dependencies
         run: npm install
-        working-directory: ./themes/labue-codes-theme
+        with:
+          working-directory: ./themes/labue-codes-theme
       - name: Process stylesheet
         run: npm run style
-        working-directory: ./themes/labue-codes-theme
+        with:
+          working-directory: ./themes/labue-codes-theme
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
