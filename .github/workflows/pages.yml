@@ -5,17 +5,17 @@ on:
       - master
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository and submodules
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           submodules: true
           fetch-depth: 0
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
-          node-version: '12.21.0'
+          node-version: 20
       - name: Install submodule dependencies
         run: npm install
         working-directory: ./themes/labue-codes-theme
@@ -23,7 +23,7 @@ jobs:
         run: npm run style
         working-directory: ./themes/labue-codes-theme
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: 'latest'
       - name: Build
